@@ -2,7 +2,7 @@ nbproject/*
 runtime/*
 web/assets/*
 protected/config/*
-#assets/*
+assets/*
 
 
 # Compiled source #
