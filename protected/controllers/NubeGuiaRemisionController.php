@@ -223,15 +223,6 @@ class NubeGuiaRemisionController extends Controller {
         ));
     }
     
-    public function actionEnviarDocumento() {
-        if (Yii::app()->request->isAjaxRequest) {
-            $ids = isset($_POST['ids']) ? base64_decode($_POST['ids']) : NULL;
-            $res = new NubeGuiaRemision;
-            $arroout=$res->enviarDocumentos($ids);
-            header('Content-type: application/json');
-            echo CJavaScript::jsonEncode($arroout);
-            return;
-        }
-    }
+    
 
 }

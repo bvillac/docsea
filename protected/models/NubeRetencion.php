@@ -215,7 +215,9 @@ class NubeRetencion extends VsSeaIntermedia {
         $page= new VSValidador;
         $rawData = array();
         $limitrowsql=$page->paginado($control);
+        
         $tipoUser=Yii::app()->getSession()->get('RolId', FALSE);
+        $UserName=Yii::app()->getSession()->get('user_name', FALSE);
         $usuarioErp=$page->concatenarUserERP(Yii::app()->getSession()->get('UsuarioErp', FALSE));
         //echo $usuarioErp;
         //$fecInifact=Yii::app()->params['dateStartFact'];//Fecha Inicial de Facturacion Electronica
@@ -229,22 +231,13 @@ class NubeRetencion extends VsSeaIntermedia {
                     A.TotalRetencion,'COMPROBANTE DE RETENCION' NombreDocumento,A.AutorizacionSri,
                                             A.ClaveAcceso,A.FechaAutorizacion
                     FROM " . $con->dbname . ".NubeRetencion A
-                WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado NOT IN (5) ";
-        
-        //Usuarios Vendedor con * es privilegiado y puede ver lo que factura el resta
-        $sql .= ($usuarioErp!='*') ? "AND A.UsuarioCreador IN ('$usuarioErp')" : "";//Para Usuario Vendedores.
-
+                WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado=2 AND A.IdentificacionSujetoRetenido=$UserName ";
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
-            $sql .= ($control[0]['TIPO_APR'] != "0") ? " AND A.Estado = '" . $control[0]['TIPO_APR'] . "' " : " AND A.Estado NOT IN (5) ";
-            $sql .= ($control[0]['CEDULA'] > 0) ? "AND A.IdentificacionSujetoRetenido = '" . $control[0]['CEDULA'] . "' " : "";
-            //$sql .= ($control[0]['COD_PACIENTE'] != "0") ? "AND CDOR_ID_PACIENTE='".$control[0]['COD_PACIENTE']."' " : "";
-            //$sql .= ($control[0]['PACIENTE'] != "") ? "AND CONCAT(B.PER_APELLIDO,' ',B.PER_NOMBRE) LIKE '%" . $control[0]['PACIENTE'] . "%' " : "";
             $sql .= "AND DATE(A.FechaEmision) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
         }
         $sql .= "ORDER BY A.IdRetencion DESC $limitrowsql";
-        //echo $sql;
-        //VSValidador::putMessageLogFile($sql);
+
         $rawData = $con->createCommand($sql)->queryAll();
         $con->active = false;
 

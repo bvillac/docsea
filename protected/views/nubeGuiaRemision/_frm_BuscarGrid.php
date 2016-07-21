@@ -1,56 +1,6 @@
 <div id="div-table">
     <div class="trow">
         <div class="tcol-td form-group">
-            <?php
-            $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                'name' => 'txt_PER_CEDULA',
-                'id' => 'txt_PER_CEDULA',
-                'source' => "js: function(request, response){ 
-                          autocompletarBuscarPersona(request, response,'txt_PER_CEDULA','COD-NOM');
-                        }",
-                'options' => array(
-                    'minLength' => '2',
-                    'showAnim' => 'fold',
-                    'select' => "js:function(event, ui) {
-                            //actualizaBuscarPersona(ui.item.PER_ID);     
-                        }"
-                ),
-                'htmlOptions' => array(
-                    'class' => 'form-control',
-                    "data-type" => "number",
-                    'size'=>35, 
-                    //'onKeyup' => "verificarTextCedula(isEnter(event),'txt_PER_CEDULA')",
-                    'placeholder' => Yii::t('COMPANIA', 'Social reason o Ruc'),
-                    //'onkeydown' => "nextControl(isEnter(event),'txt_nombre_medico_aten')",
-                    //'onkeydown' => "buscarCodigo(isEnter(event),'txt_cod_paciente','COD-ID')",
-                    //'onkeydown' => "verificarTextCedula(isEnter(event),'txt_PER_CEDULA')",
-                    //'value' => 'search',
-                ),
-            ));
-            ?>
-        </div>
-        <!--<div class="tcol-td">
-            <span> <?php //echo Yii::t('COMPANIA', 'Document') ?></span>
-        </div>
-        <div class="tcol-td">
-            <?php
-//            echo CHtml::dropDownList(
-//                    'cmb_tipDoc', '0'
-//                    , array('0' => Yii::t('COMPANIA', '-Select-')) + CHtml::listData($tipoDoc, 'TipoDocumento', 'Descripcion')
-//                    , array('class' => 'form-control')
-//            );
-            ?> 
-        </div>-->
-        <div class="tcol-td form-group">
-            <?php
-            echo CHtml::dropDownList(
-                    'cmb_tipoApr', '0'
-                    , array('0' => Yii::t('COMPANIA', 'All')) + $tipoApr
-                    , array('class' => 'form-control')
-            );
-            ?> 
-        </div>
-        <div class="tcol-td form-group">
             <span> <?php echo Yii::t('COMPANIA', 'Date Start') ?></span>
         </div>
         <div class="tcol-td form-group">
@@ -121,8 +71,6 @@
         <div class="tcol-td form-group">
             <?php echo CHtml::button(Yii::t('CONTROL_ACCIONES', 'Search'), array('id' => 'btn_buscar', 'name' => 'btn_buscar', 'class' => 'btn btn-success', 'onclick' => 'buscarDataIndex("","")')); ?>
         </div>
-        <div class="tcol-td form-group">
-            <?php echo CHtml::button(Yii::t('CONTROL_ACCIONES', 'Authorizing document'), array('id' => 'btn_enviar', 'name' => 'btn_enviar', 'class' => 'btn btn-success', 'onclick' => 'fun_EnviarDocumento()')); ?>
-        </div>
+        
     </div>
 </div>

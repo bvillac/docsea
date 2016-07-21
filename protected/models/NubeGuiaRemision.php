@@ -217,6 +217,7 @@ class NubeGuiaRemision extends VsSeaIntermedia {
         $tipoUser=Yii::app()->getSession()->get('RolId', FALSE);
         $usuarioErp=$this->concatenarUserERP(Yii::app()->getSession()->get('UsuarioErp', FALSE));
         //echo $usuarioErp;
+        $UserName=Yii::app()->getSession()->get('user_name', FALSE);
         //$fecInifact=Yii::app()->params['dateStartFact'];//Fecha Inicial de Facturacion Electronica
         $fecInifact= date(Yii::app()->params['datebydefault']);
         $con = Yii::app()->dbvsseaint;
@@ -229,15 +230,9 @@ class NubeGuiaRemision extends VsSeaIntermedia {
                     FROM " . $con->dbname . ".NubeGuiaRemision A
                             INNER JOIN " . $con->dbname . ".NubeGuiaRemisionDestinatario B
                                     ON A.IdGuiaRemision=B.IdGuiaRemision
-            WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado NOT IN (5) ";
-        
-        //Usuarios Vendedor con * es privilegiado y puede ver lo que factura el resta
-        $sql .= ($usuarioErp!='*') ? "AND A.UsuarioCreador IN ('$usuarioErp')" : "";//Para Usuario Vendedores.
-        //$sql .= "AND A.UsuarioCreador IN ('$usuarioErp') " ;//Para Usuario Vendedores.*/
+            WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado =2 AND B.IdentificacionDestinatario=$UserName ";
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
-            $sql .= ($control[0]['TIPO_APR'] != "0") ? " AND A.Estado = '" . $control[0]['TIPO_APR'] . "' " : " AND A.Estado NOT IN (5) ";
-            $sql .= ($control[0]['CEDULA'] > 0) ? "AND A.IdentificacionDestinatario = '" . $control[0]['CEDULA'] . "' " : "";
             $sql .= "AND DATE(A.FechaEmisionErp) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
         }
         $sql .= "ORDER BY A.IdGuiaRemision DESC  $limitrowsql";

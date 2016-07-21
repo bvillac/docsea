@@ -17,12 +17,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'selectionChanged' => 'verificaAcciones',
     'beforeAjaxUpdate'=>'function(id,options){ options.type="POST";options.data = {  "CONT_BUSCAR": controlBuscarIndex("txt_PER_CEDULA","") } }',
     'columns' => array(
-        array(
-            'id' => 'chkId',
-            'class' => 'CCheckBoxColumn',
-            //'cssClassExpression' => '($data["Estado"]=="2")?"disabled":""',
-            'disabled' => '($data["Estado"]=="2")?true:false',
-        ),
+//        array(
+//            'id' => 'chkId',
+//            'class' => 'CCheckBoxColumn',
+//            //'cssClassExpression' => '($data["Estado"]=="2")?"disabled":""',
+//            'disabled' => '($data["Estado"]=="2")?true:false',
+//        ),
         /* array(
           'header' => '#',
           'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1',
@@ -63,29 +63,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         "target" => "_blank",
                     ),
                 ),
-            //'xsd' => array(
-            //    'label' => Yii::t('COMPANIA', 'Download XSD document'),
-            //    'imageUrl'=>Yii::app()->theme->baseUrl . Yii::app()->params['rutaIconos'].'xsd.png', //ruta del icono
-            //'click' => 'js:obtenerSeleccion',
-            //'click'=>'function(){$("#dialog_id").dialog("open"); return false;}',
-            //),
             ),
         ),
-        array(
-            'name' => 'Estado',
-            'header' => Yii::t('COMPANIA', 'Status'),
-            'value' => '($data["Estado"]=="1")?Yii::t("COMPANIA", "Send"):(($data["Estado"]=="2")?Yii::t("COMPANIA", "Authorization"):(($data["Estado"]=="3")?Yii::t("COMPANIA", "Deny"):Yii::t("COMPANIA", "Returned")))',
-        ),
 //        array(
-//            'name' => 'CodigoTransaccionERP',
+//            'name' => 'NombreDocumento',
 //            'header' => Yii::t('COMPANIA', 'Document type'),
-//            'value' => '$data["CodigoTransaccionERP"]',
+//            'value' => '$data["NombreDocumento"]',
 //        ),
-        array(
-            'name' => 'NombreDocumento',
-            'header' => Yii::t('COMPANIA', 'Document type'),
-            'value' => '$data["NombreDocumento"]',
-        ),
         array(
             'name' => 'NumDocumento',
             'header' => Yii::t('COMPANIA', 'Document Number'),
@@ -97,31 +81,20 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'header' => Yii::t('COMPANIA', 'Issuance date'),
             'value' => 'date(Yii::app()->params["datebydefault"],strtotime($data["FechaEmision"]))',
         ),
-        array(
-            'name' => 'UsuarioCreador',
-            'header' => Yii::t('COMPANIA', 'Serving'),
-            'value' => '$data["UsuarioCreador"]',
-            'htmlOptions' => array('style' => 'text-align:center'),
-        ),
-        array(
-            'name' => 'FechaAutorizacion',
-            'header' => Yii::t('COMPANIA', 'Authorization date'),
-            'value' => '($data["FechaAutorizacion"]<>"")?date(Yii::app()->params["datebydefault"],strtotime($data["FechaAutorizacion"])):"";',
-        ),
 //        array(
-//            'name' => 'AutorizacionSRI',
-//            'header' => Yii::t('COMPANIA', 'Authorization number SRI'),
-//            'value' => '$data["AutorizacionSRI"]',
-//        ),
-//        array(
-//            'name' => 'NumDocumento',
-//            'header' => Yii::t('COMPANIA', 'NumDocumento'),
-//            'value' => '$data["NumDocumento"]',
+//            'name' => 'FechaAutorizacion',
+//            'header' => Yii::t('COMPANIA', 'Authorization date'),
+//            'value' => '($data["FechaAutorizacion"]<>"")?date(Yii::app()->params["datebydefault"],strtotime($data["FechaAutorizacion"])):"";',
 //        ),
         array(
-            'name' => 'IdentificacionComprador',
-            'header' => Yii::t('COMPANIA', 'Dni/Ruc'),
-            'value' => '$data["IdentificacionComprador"]',
+            'name' => 'AutorizacionSRI',
+            'header' => Yii::t('COMPANIA', 'Authorization number SRI'),
+            'value' => '$data["AutorizacionSRI"]',
+        ),
+        array(
+            'name' => 'ClaveAcceso',
+            'header' => Yii::t('COMPANIA', 'Authorization Clave'),
+            'value' => '$data["ClaveAcceso"]',
         ),
         array(
             'name' => 'RazonSocialComprador',

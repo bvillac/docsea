@@ -1,15 +1,15 @@
 <div id="div-table">
     <div class="trow">
 
-        <div class="tcol-td form-group">
+<!--        <div class="tcol-td form-group">
             <?php
-            echo CHtml::dropDownList(
+            /*echo CHtml::dropDownList(
                     'cmb_tipoApr', '0'
                     , array('0' => Yii::t('COMPANIA', 'All')) + $tipoApr
                     , array('class' => 'form-control')
-            );
+            );*/
             ?> 
-        </div>
+        </div>-->
         <div class="tcol-td form-group">
             <span> <?php echo Yii::t('COMPANIA', 'Date Start') ?></span>
         </div>

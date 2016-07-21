@@ -490,8 +490,6 @@ class NubeFactura extends VsSeaIntermedia {
                 WHERE A.CodigoDocumento='$this->tipoDoc'  AND A.Estado = 2 AND A.IdentificacionComprador=$UserName ";
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
-            //$sql .= ($control[0]['TIPO_APR'] != "0") ? " AND A.Estado = '" . $control[0]['TIPO_APR'] . "' " : " AND A.Estado NOT IN (5) ";
-            //$sql .= ($control[0]['CEDULA'] > 0) ? "AND A.IdentificacionComprador = '" . $control[0]['CEDULA'] . "' " : "";
             $sql .= "AND DATE(A.FechaEmision) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
         }
         $sql .= "ORDER BY A.IdFactura DESC  $limitrowsql";
