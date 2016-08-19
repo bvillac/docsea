@@ -22,8 +22,8 @@
             </tr>
             <tr>
                 <td>
-                    <span class="titleLabel"><?php echo Yii::t('DOCUMENTOS', 'Special contributor') ?></span>
-                    <span><?php echo strtoupper(Yii::app()->getSession()->get('ContribuyenteEspecial', FALSE)) ?></span>
+                    <span class="titleLabel"><?php echo Yii::t('DOCUMENTOS', 'Special contributor') ?>:</span>
+                    <span><?php echo (Yii::app()->getSession()->get('ContribuyenteEspecial', FALSE)!='')? strtoupper(Yii::app()->getSession()->get('ContribuyenteEspecial', FALSE)):' NO' ?></span>
                 </td>
                
             </tr>
