@@ -23,7 +23,7 @@ $this->breadcrumbs=array(
 
 	<div class="form-group">
                 <?php //echo $form->labelEx($model,'username'); ?>
-                <?php echo $form->textField($model,'username',array('class'=>'form-control','placeholder'=>'E-mail')); ?>
+                <?php echo $form->textField($model,'username',array('class'=>'form-control','placeholder'=>'Cédula o Ruc')); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 	<div class="form-group">
