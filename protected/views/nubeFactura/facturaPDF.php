@@ -61,7 +61,7 @@
             <table style="width:100%;">
                 <tbody>
                     <tr>
-                        <td style="width:50%">
+                        <td style="width:50%;vertical-align: central">
                             <?php echo CHtml::image(Yii::app()->theme->baseUrl . '/images/plantilla/logo.png', 'Utimpor', array('width' => '300px', 'height' => '50px')); ?>
                         </td>
                         <td rowspan="2" style="width:50%">
@@ -69,7 +69,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:50%">
+                        <td style="width:50%;vertical-align: bottom">
                             <?php echo $this->renderPartial('_frm_DataEmpresa'); ?>
                         </td>
                     </tr>
@@ -98,7 +98,7 @@
             <table style="width:100%;">
                 <tbody>
                     <tr>
-                        <td style="width:70%">
+                        <td style="width:70%;vertical-align: top">
                             <?php echo $this->renderPartial('_frm_DataAuxFact', array('adiFact' => $adiFact)); ?>
                         </td>
                         <td style="width:30%">

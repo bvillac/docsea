@@ -13,7 +13,7 @@
                 </td>
                 
             </tr>
-            <tr>
+<!--            <tr>
                 <td>
                     <span class="titleLabel"><?php echo Yii::t('DOCUMENTOS', 'Dir branch') ?></span>
                     <span><?php echo strtoupper(Yii::app()->getSession()->get('DireccionSucursal', FALSE)) ?></span>
@@ -24,15 +24,13 @@
                 <td>
                     <span class="titleLabel"><?php echo Yii::t('DOCUMENTOS', 'Special contributor') ?>:</span>
                     <span><?php echo (Yii::app()->getSession()->get('ContribuyenteEspecial', FALSE)!='')? strtoupper(Yii::app()->getSession()->get('ContribuyenteEspecial', FALSE)):' NO' ?></span>
-                </td>
-               
-            </tr>
+                </td>               
+            </tr>-->
             <tr>
                 <td>
                     <span class="titleLabel"><?php echo Yii::t('DOCUMENTOS', 'ACCOUNTING REQUIRED TO CARRY') ?></span>
                     <span><?php echo strtoupper(Yii::app()->getSession()->get('ObligadoContabilidad', FALSE)) ?></span>
-                </td>
-                
+                </td>                
             </tr>
             
         </tbody>

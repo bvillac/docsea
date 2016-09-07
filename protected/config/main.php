@@ -114,8 +114,8 @@ return array(
           ), */
         // uncomment the following to use a MySQL database
         'db' => array(
-            //'connectionString' => 'mysql:host=192.168.10.200;dbname=APPWEB',
-            'connectionString' => 'mysql:host=localhost;dbname=APPWEB',//local Server
+            'connectionString' => 'mysql:host=192.168.10.200;dbname=APPWEB',
+            //'connectionString' => 'mysql:host=localhost;dbname=APPWEB',//local Server
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root00',
@@ -137,8 +137,8 @@ return array(
         ),
         'dbvssea' => array(
             'class' => 'CDbConnection',
-            'connectionString' => 'mysql:host=localhost;dbname=VSSEA',//local Server
-            //'connectionString' => 'mysql:host=192.168.10.200;dbname=VSSEA',
+            //'connectionString' => 'mysql:host=localhost;dbname=VSSEA',//local Server
+            'connectionString' => 'mysql:host=192.168.10.200;dbname=VSSEA',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root00',
@@ -149,8 +149,8 @@ return array(
         ),
         'dbvsseaint' => array(
             'class' => 'CDbConnection',
-            'connectionString' => 'mysql:host=localhost;dbname=VSSEAINTERMEDIA',//local Server
-            //'connectionString' => 'mysql:host=192.168.10.200;dbname=VSSEAINTERMEDIA',
+            //'connectionString' => 'mysql:host=localhost;dbname=VSSEAINTERMEDIA',//local Server
+            'connectionString' => 'mysql:host=192.168.10.200;dbname=VSSEAINTERMEDIA',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root00',
@@ -183,6 +183,9 @@ return array(
     // using Yii::app()->params['paramName']
     'params' => array(
         // this is used in contact page
+        'EmpID' => '1',//Empresa
+        'EstID' => '1',//Establecimiento
+        'PemiID' => '1',//PuntoEmision
         'IVAdefault' => 14,//Impuesto General para PDF
         'SepdecimalPDF' => '.',
         'decimalPDF' => 2,//Impuesto General para PDF

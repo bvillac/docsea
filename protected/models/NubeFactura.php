@@ -487,7 +487,8 @@ class NubeFactura extends VsSeaIntermedia {
                         A.TotalSinImpuesto,A.TotalDescuento,A.Propina,A.ImporteTotal,
                         'FACTURA' NombreDocumento,A.AutorizacionSri,A.ClaveAcceso,A.FechaAutorizacion
                         FROM " . $con->dbname . ".NubeFactura A
-                WHERE A.CodigoDocumento='$this->tipoDoc'  AND A.Estado = 2 AND A.IdentificacionComprador=$UserName ";
+                WHERE A.CodigoDocumento='$this->tipoDoc'  AND A.Estado = 2  ";
+        $sql .= ($UserName!='bvillacreses') ? " AND A.IdentificacionComprador='$UserName' " : "";//Para Usuario Admin.
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
             $sql .= "AND DATE(A.FechaEmision) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";

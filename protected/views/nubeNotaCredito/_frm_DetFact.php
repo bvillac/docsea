@@ -5,21 +5,21 @@
             <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Main code') ?></span>
             </td>
-            <td class="marcoCel titleDetalle">
+<!--            <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Main stub') ?></span>
-            </td>
+            </td>-->
             <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Quantity') ?></span>
             </td>
             <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Description') ?></span>
             </td>
-            <td class="marcoCel titleDetalle">
+            <!--<td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Additional details') ?></span>
             </td>
             <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Additional details N2') ?></span>
-            </td>
+            </td>-->
             <td class="marcoCel titleDetalle">
                 <span><?php echo Yii::t('DOCUMENTOS', 'Unit price') ?></span>
             </td>
@@ -35,11 +35,11 @@
             ?>
             <tr>
                 <td class="marcoCel"><?php echo $detFact[$i]['CodigoPrincipal'] ?></td>
-                <td class="marcoCel"><?php echo $detFact[$i]['CodigoAuxiliar'] ?></td>
+<!--                <td class="marcoCel"><?php echo $detFact[$i]['CodigoAuxiliar'] ?></td>-->
                 <td class="marcoCel dataNumber"><?php echo intval($detFact[$i]['Cantidad']) ?></td>
                 <td class="marcoCel"><?php echo $detFact[$i]['Descripcion'] ?></td>
-                <td class="marcoCel"><?php //echo $detFact[$i]['CodigoPrincipal'] ?></td>
-                <td class="marcoCel"><?php //echo $detFact[$i]['CodigoPrincipal'] ?></td>
+<!--                <td class="marcoCel"><?php //echo $detFact[$i]['CodigoPrincipal'] ?></td>
+                <td class="marcoCel"><?php //echo $detFact[$i]['CodigoPrincipal'] ?></td>-->
                 <!--<td class="marcoCel dataNumber"><?php //echo Yii::app()->format->formatNumber($detFact[$i]['PrecioUnitario']) ?></td>Problmas de Redondeo-->
                 <td class="marcoCel dataNumber"><?php echo $detFact[$i]['PrecioUnitario'] ?></td>
                 <td class="marcoCel dataNumber"><?php echo Yii::app()->format->formatNumber($detFact[$i]['Descuento']) ?></td>

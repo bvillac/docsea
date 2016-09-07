@@ -62,7 +62,9 @@ class UserIdentity extends CUserIdentity
                     //Yii::app()->getSession()->get('user_name', FALSE);
                     //INFORMACION EMPRESAS
                     //$emp=$empresa->mostrarEmpresas($user->USU_ID);
-                    $emp_id='1';$est_id='1';$pemi_id='1';
+                    $emp_id=Yii::app()->params['EmpID'];//'1';
+                    $est_id=Yii::app()->params['EstID'];//'1';
+                    $pemi_id=Yii::app()->params['PemiID'];//'1';
                     $data=$empresa->buscarDataEmpresa($emp_id, $est_id, $pemi_id);
                     $tipoUser=$rol->buscarTipoUser($user->USU_ID);
                     

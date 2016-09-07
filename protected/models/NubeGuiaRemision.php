@@ -230,7 +230,9 @@ class NubeGuiaRemision extends VsSeaIntermedia {
                     FROM " . $con->dbname . ".NubeGuiaRemision A
                             INNER JOIN " . $con->dbname . ".NubeGuiaRemisionDestinatario B
                                     ON A.IdGuiaRemision=B.IdGuiaRemision
-            WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado =2 AND B.IdentificacionDestinatario=$UserName ";
+            WHERE A.CodigoDocumento='$this->tipoDoc' AND A.Estado =2  ";
+        
+        $sql .= ($UserName!='bvillacreses') ? " AND B.IdentificacionDestinatario='$UserName' " : "";//Para Usuario Admin.
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
             $sql .= "AND DATE(A.FechaEmisionErp) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
