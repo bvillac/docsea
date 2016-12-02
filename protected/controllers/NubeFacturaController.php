@@ -191,6 +191,7 @@ class NubeFacturaController extends Controller {
             $cabFact = $modelo->mostrarCabFactura($ids);
             $detFact = $modelo->mostrarDetFacturaImp($ids);
             $impFact = $modelo->mostrarFacturaImp($ids);
+            $pagFact = $modelo->mostrarFormaPago($ids);
             $adiFact = $modelo->mostrarFacturaDataAdicional($ids);
             $mPDF1=$rep->crearBaseReport();
             $Titulo=Yii::app()->getSession()->get('RazonSocial', FALSE) . " - " . $cabFact['NombreDocumento'];
@@ -199,6 +200,7 @@ class NubeFacturaController extends Controller {
                         'cabFact' => $cabFact,
                         'detFact' => $detFact,
                         'impFact' => $impFact,
+                        'pagFact' => $pagFact,
                         'adiFact' => $adiFact,
                                 ), true);
              $mPDF1->SetTitle($Titulo);

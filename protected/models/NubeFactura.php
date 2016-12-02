@@ -570,6 +570,20 @@ class NubeFactura extends VsSeaIntermedia {
         $con->active = false;
         return $rawData;
     }
+    
+    public function mostrarFormaPago($id) {
+        $rawData = array();
+        $con = Yii::app()->dbvsseaint;
+        //$sql = "SELECT * FROM " . $con->dbname . ".NubeFacturaFormaPago WHERE IdFactura=$id";
+        $sql = "SELECT B.FormaPago,A.Total,A.Plazo,A.UnidadTiempo,A.FormaPago Codigo  
+                FROM " . $con->dbname . ".NubeFacturaFormaPago A
+                        INNER JOIN " . $con->dbname . ".VSFormaPago B
+                                ON A.IdForma=B.IdForma
+                    WHERE A.IdFactura=$id ";
+        $rawData = $con->createCommand($sql)->queryAll(); //Recupera Solo 1
+        $con->active = false;
+        return $rawData;
+    }
 
     public function mostrarFacturaImp($id) {
         $rawData = array();
