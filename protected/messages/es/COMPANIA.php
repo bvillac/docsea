@@ -19,6 +19,7 @@ return array(
     'Authorization date' => 'FecAutoSRI',
     'Authorization number SRI' => 'NºAutoSRI',
     'Authorization Clave' => 'Clave de Acceso',
+    'Authorization number Clave' => 'NºAutoSRI / Clave de Acceso',
     'User' => 'Usuario',
     'Serving' => 'Atiende',
     'Issuance date' => 'FecEmisión',

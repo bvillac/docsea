@@ -86,14 +86,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 //            'header' => Yii::t('COMPANIA', 'Authorization date'),
 //            'value' => '($data["FechaAutorizacion"]<>"")?date(Yii::app()->params["datebydefault"],strtotime($data["FechaAutorizacion"])):"";',
 //        ),
-        array(
-            'name' => 'AutorizacionSRI',
-            'header' => Yii::t('COMPANIA', 'Authorization number SRI'),
-            'value' => '$data["AutorizacionSRI"]',
-        ),
+//        array(
+//            'name' => 'AutorizacionSRI',
+//            'header' => Yii::t('COMPANIA', 'Authorization number SRI'),
+//            'value' => '$data["AutorizacionSRI"]',
+//        ),
         array(
             'name' => 'ClaveAcceso',
-            'header' => Yii::t('COMPANIA', 'Authorization Clave'),
+            'header' => Yii::t('COMPANIA', 'Authorization number Clave'),
             'value' => '$data["ClaveAcceso"]',
         ),
         array(

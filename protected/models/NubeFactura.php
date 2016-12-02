@@ -487,11 +487,13 @@ class NubeFactura extends VsSeaIntermedia {
                         A.TotalSinImpuesto,A.TotalDescuento,A.Propina,A.ImporteTotal,
                         'FACTURA' NombreDocumento,A.AutorizacionSri,A.ClaveAcceso,A.FechaAutorizacion
                         FROM " . $con->dbname . ".NubeFactura A
-                WHERE A.CodigoDocumento='$this->tipoDoc'  AND A.Estado = 2  ";
+                WHERE A.CodigoDocumento='$this->tipoDoc'  AND A.Estado = 3  ";
         $sql .= ($UserName!='bvillacreses') ? " AND A.IdentificacionComprador='$UserName' " : "";//Para Usuario Admin.
         
         if (!empty($control)) {//Verifica la Opcion op para los filtros
-            $sql .= "AND DATE(A.FechaEmision) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
+            if($control[0]['F_INI']!='' AND $control[0]['F_FIN']!=''){//Si vienen valores en blanco en las fechas muestra todos
+                $sql .= "AND DATE(A.FechaEmision) BETWEEN '" . date("Y-m-d", strtotime($control[0]['F_INI'])) . "' AND '" . date("Y-m-d", strtotime($control[0]['F_FIN'])) . "'  ";
+            }   
         }
         $sql .= "ORDER BY A.IdFactura DESC  $limitrowsql";
         //echo $sql;
