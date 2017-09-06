@@ -126,26 +126,14 @@ return array(
         ),
         'dbcont' => array(//Contribuyente
             'class' => 'CDbConnection',
-            //'connectionString' => 'mysql:host=localhost;dbname=utimpor2016',//local Server 
-            'connectionString' => 'mysql:host=192.168.10.1;dbname=utimpor2016',//Servidor IBM
+            //'connectionString' => 'mysql:host=localhost;dbname=utimpor2017',//local Server 
+            'connectionString' => 'mysql:host=192.168.10.1;dbname=utimpor2017',//Servidor IBM
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root00',
             'charset' => 'utf8',
             'dbname' => 'utimpor2016',
             'dbserver' => "192.168.10.1"
-        ),
-        'dbvssea' => array(
-            'class' => 'CDbConnection',
-            'connectionString' => 'mysql:host=localhost;dbname=VSSEA',//local Server
-            //'connectionString' => 'mysql:host=192.168.10.200;dbname=VSSEA',
-            'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => 'root00',
-            'charset' => 'utf8',
-            'dbname' => 'VSSEA',
-            'dbserver' => "localhost",
-            //'dbserver' => "192.168.10.200"
         ),
         'dbvsseaint' => array(
             'class' => 'CDbConnection',

@@ -18,7 +18,7 @@
  * The followings are the available model relations:
  * @property VSCompania $idCompania
  */
-class VSDirectorio extends VsSeaActiveRecord {
+class VSDirectorio extends CActiveRecord {
 
     /**
      * @return string the associated database table name
@@ -123,7 +123,8 @@ class VSDirectorio extends VsSeaActiveRecord {
     }
 
     public function recuperarTipoDocumentos() {
-        $con = yii::app()->dbvssea;
+        //$con = yii::app()->dbvssea;
+        $con = yii::app()->db;
         $sql = "SELECT idDirectorio,TipoDocumento,Descripcion,Ruta 
                 FROM " . $con->dbname . ".VSDirectorio WHERE Estado=1;";
         $rawData = $con->createCommand($sql)->queryAll();

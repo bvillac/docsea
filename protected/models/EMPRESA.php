@@ -172,10 +172,11 @@ class EMPRESA extends CActiveRecord {
     }
     
     public function buscarAmbienteEmp($IdCompania,$Ambiente) {
-        $conApp = yii::app()->dbvssea;
+        //$conApp = yii::app()->dbvssea;
+        $conApp = yii::app()->db;
         $rawData = array();
         $sql = "SELECT Recepcion,Autorizacion,RecepcionLote,TiempoRespuesta,TiempoSincronizacion "
-                . "FROM " . $conApp->dbname . ".VSServiciosSRI WHERE IdCompania=$IdCompania AND Ambiente=$Ambiente AND Estado=1";
+                . "FROM " . $conApp->dbname . ".VSServiciosSRI WHERE EMP_ID=$IdCompania AND Ambiente=$Ambiente AND Estado=1";
         //echo $sql;
         //$rawData = $conApp->createCommand($sql)->queryAll(); //Varios registros =>  $rawData[0]['RazonSocial']
         $rawData = $conApp->createCommand($sql)->queryRow();  //Un solo Registro => $rawData['RazonSocial']
